@@ -44,6 +44,25 @@ body {
     padding-left: 2.5rem;
 }
 
+.logo {
+    display: flex; 
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    text-decoration: none;
+    position: relative;
+    padding-left: 2.5rem;
+    gap: 10px; 
+    text-decoration: none;
+
+}
+
+.logo-img {
+    height: 80px;
+    width: auto;
+    background-color: var(--dark-bg);
+}
+
 .nav-links {
     display: flex;
     gap: 2rem;
@@ -120,6 +139,18 @@ nav-links a.active::after {
 
 /* Mobile Navigation */
 @media (max-width: 768px) {
+   .nav-bar {
+        padding: 10px 15px; 
+    }
+      .logo-img {
+        height: 40px; 
+    }
+
+    .logo {
+        font-size: 1.6rem; 
+    }
+    
+    
     .nav-links {
         display: none;
         flex-direction: column;
