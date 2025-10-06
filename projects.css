@@ -11,6 +11,12 @@
     --accent: #2ecc71;
     --accent-glow: rgba(46, 204, 113, 0.4);
     --text: #ffffff;
+    --w-image: 500px;
+}
+
+html, body {
+    height: 100%; 
+    min-height: 100vh;
 }
 
 body {
@@ -18,11 +24,12 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+    padding-top: 0; 
 }
 
 /* Navigation */
 .nav-bar {
-    position: relative;
+    position: fixed;
     top: 0;
     width: 100%;
     padding: 1.5rem 5%;
@@ -50,6 +57,7 @@ body {
     display: flex;
     gap: 2rem;
     list-style: none;
+    z-index: 999;
 }
 
 .nav-links a {
@@ -119,7 +127,7 @@ body {
     }
 
 
-.nav-links.show {
+.nav-links.active {
     display: flex;
 }
 
@@ -127,72 +135,211 @@ body {
     display: flex;
 }
 }
-.slider {
-    width: 1300px;
-    max-width: 100vw;
-    height: 700px;
-    margin: auto;
-    position: relative;
+
+.carousel {
+    width: 100vw;
+    height: 95vh; 
+    margin-top: calc(60px + 3rem); 
     overflow: hidden;
-}
-.list {
     position: relative;
+}
+
+.carousel .list .item {
+    position: absolute;
+    width: 200px; 
+    height: 300px; 
+    border-radius: 15px; 
+    
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    
+    transition: 1s ease-in-out;
+    z-index: 10;
+}
+
+.carousel .list .item {
+    position: absolute;
+    width: 200px; 
+    height: 300px; 
+    border-radius: 15px; 
+    transition: 1s ease-in-out; 
+    z-index: 10;
+}
+    
+   
+.carousel .list .item:nth-child(1) {
     top: 0;
     left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
     height: 100%;
-    display: flex;
-    width: max-content;
-    transition: 1s;
+    box-shadow: none;
+    z-index: 500; 
 }
-.list img {
-    width: 1300px;
-    max-width: 100vw;
-    height: 100%;
-    object-fit: cover;
 
+.carousel .list .item:nth-child(2) {
+    top: 65%; 
+    left: 75%;
+    transform: translateY(-50%);
+    z-index: 400;
+    opacity: 1;
 }
-.buttons {
+
+.carousel .list .item:nth-child(3) {
+    top: calc(65% + 10px); 
+    left: calc(75% + 100px); 
+    transform: translateY(-50%) scale(0.95);
+    opacity: 0.8;
+    z-index: 300; 
+}
+
+.carousel .list .item:nth-child(4) {
+    top: calc(65% + 20px);
+    left: calc(75% + 200px);
+    transform: translateY(-50%) scale(0.9); 
+    opacity: 0.6; 
+    z-index: 200; 
+}
+
+.carousel .list .item:nth-child(5) {
+    top: calc(65% + 20px);
+    left: calc(75% + 300px);
+    transform: translateY(-50%) scale(0.9); 
+    opacity: 0.6; 
+    z-index: 100; 
+}
+
+.carousel .list .item:nth-child(6) {
+    top: calc(65% + 20px);
+    left: calc(75% + 400px);
+    transform: translateY(-50%) scale(0.9); 
+    opacity: 0.6; 
+    z-index: 80; 
+}
+
+.carousel .list .item:nth-child(7) {
+    top: calc(65% + 20px);
+    left: calc(75% + 500px);
+    transform: translateY(-50%) scale(0.9); 
+    opacity: 0.6; 
+    z-index: 70; 
+}
+
+.carousel .list .item:nth-child(8) {
+    top: calc(65% + 20px);
+    left: calc(75% + 500px);
+    transform: translateY(-50%) scale(0.9); 
+    opacity: 0.6; 
+    z-index: 60; 
+}
+
+.carousel .list .item:nth-child(n+9) {
+    top: 65%;
+    left: 100%; 
+    transform: translateY(-50%);
+    opacity: 0; 
+    z-index: 50;
+}
+
+/* next prev arrows */
+.arrows {
     position: absolute;
-    top:45%;
-    width: 90%;
+    top: 80%;
+    right: 52%;
+    width: 300px;
+    max-width: 30%;
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    z-index: 600;
 }
-.buttons button {
+.arrows button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    background-color: rgba(200, 198, 198, 0.333);
+    background-color: var(--accent);
     color: #fff;
     border: none;
-    font-family: monospace;
+    outline: none;
+   font-size: 16px;
+   font-family: monospace;
     font-weight: bold;
+    transition: .5s;
+    cursor: pointer;
 }
-.dots {
+
+.arrows button:hover{
+    background-color: var(--text);
+    color: var(--darker-bg);
+}
+
+@media screen and (max-width: 600px) {
+    .carousel {
+        height: 70vh; 
+        margin-top: 5rem;
+    }
+
+    
+    .carousel .list .item {
+        width: 120px; 
+        height: 180px; 
+    }
+
+   
+    .carousel .list .item:nth-child(2) {
+        top: 60%; 
+        left: 55%; 
+        transform: translateY(-50%) scale(1);
+    }
+    
+   
+    .carousel .list .item:nth-child(3) {
+        top: calc(60% + 5px); 
+        left: calc(55% + 60px); 
+        transform: translateY(-50%) scale(0.9);
+        opacity: 0.7;
+    }
+
+   
+    .carousel .list .item:nth-child(n+4) {
+        top: 60%;
+        left: 100%; 
+        transform: translateY(-50%) scale(0.8);
+        opacity: 0; 
+    }
+    
+    
+    .arrows {
+        top: 85%;
+        right: 5%; 
+        max-width: 50%;
+        gap: 20px;
+        z-index: 600; 
+    }
+    
+    .arrows button {
+        width: 40px; 
+        height: 40px;
+    }
+}
+
+/* time running */
+.carousel .timeRunning {
     position: absolute;
-    bottom: 10px;
-    color: #fff;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: var(--accent);
     left: 0;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
 }
-.dots li {
-    list-style: none;
-    width: 10px;
-    height: 10px;
-    background-color: #fff;
-    margin: 20px;
-    border-radius: 20px;
-    transition: 1s;
-}
-.dots li.active {
-    width: 30px;
-    background: var(--accent);
-    box-shadow: 0 0 10px var(--accent-glow); 
-    transition: all 0.5s ease;
+
+@keyframes runningTime {
+    from{width: 0%;}
+    to{width: 100%;}
 }
 
 @media screen and (max-width: 768px) {
@@ -225,4 +372,26 @@ footer {
 .social-links a:hover {
     color: var(--accent);
     transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .number {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 8rem;
+    }
+
+.number-content {
+    padding-right: 0;
+    margin-bottom: 3rem;
+}
+
+.nav-links {
+    display: none;
+}
+
+.logo {
+    font-size: 1.5rem;
+    padding-left: 2rem;
+}
 }
