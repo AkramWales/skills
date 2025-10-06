@@ -36,30 +36,23 @@ body {
 }
 
 .logo {
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent);
-    text-decoration: none;
-    position: relative;
-    padding-left: 2.5rem;
-}
-
-.logo {
-    display: flex; 
-    font-size: 1.8rem;
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    
+    font-size: 1.8rem; 
     font-weight: 900;
     color: var(--accent);
     text-decoration: none;
     position: relative;
-    padding-left: 2.5rem;
-    gap: 10px; 
-    text-decoration: none;
-
+   
 }
 
 .logo-img {
-    height: 35px;
+  
+    height: 45px; 
     width: auto;
+    max-width: 100%;
     background-color: var(--dark-bg);
 }
 
@@ -140,17 +133,20 @@ nav-links a.active::after {
 /* Mobile Navigation */
 @media (max-width: 768px) {
    .nav-bar {
-        padding: 10px 15px; 
+        padding: 10px 15px;
     }
-      .logo-img {
-        height: 30px; 
+
+    .logo-img {
+        height: 35px; 
     }
 
     .logo {
-        font-size: 1.4rem; 
+        font-size: 1.5rem; 
+        gap: 8px; 
+       
     }
-    
-    
+
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -333,7 +329,6 @@ footer {
     }
 
     .logo {
-        font-size: 1.5rem;
         padding-left: 2rem;
     }
 }

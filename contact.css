@@ -125,30 +125,31 @@ nav-links a.active::after {
 }
 
 /* Mobile View */
-@media (max-width: 768px) {
-    .nav-bar {
-        padding: 10px 15px; 
+.nav-bar {
+        padding: 10px 15px;
     }
-      .logo-img {
-        height: 40px; 
+
+    .logo-img {
+        height: 35px; 
     }
 
     .logo {
-        font-size: 1.6rem; 
+        font-size: 1.5rem; 
+        gap: 8px; 
+       
     }
-    
+
+
     .nav-links {
         display: none;
         flex-direction: column;
         position: absolute;
         top: 100%;
         right: 5%;
-        background: rgba(10, 10, 10, 0.98);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        background: rgba(10, 10, 10, 0.95);
         padding: 1rem 2rem;
         border-radius: 8px;
     }
-
 
     .nav-links.active {
         display: flex;
@@ -159,7 +160,8 @@ nav-links a.active::after {
         display: flex;
         z-index: 1001;
     }
-}
+
+
 /* Akram Section */
 .number {
     min-height: 100vh;
@@ -238,7 +240,7 @@ footer {
 }
 
 .logo {
-    font-size: 1.5rem;
+  
     padding-left: 0;
 }
 }

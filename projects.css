@@ -123,18 +123,21 @@ body {
 }
 
 /* Mobile View */
-@media (max-width: 768px) {
-    .nav-bar {
-        padding: 10px 15px; 
+.nav-bar {
+        padding: 10px 15px;
     }
-      .logo-img {
-        height: 40px; 
+
+    .logo-img {
+        height: 35px; 
     }
 
     .logo {
-        font-size: 1.6rem; 
+        font-size: 1.5rem; 
+        gap: 8px; 
+       
     }
-    
+
+
     .nav-links {
         display: none;
         flex-direction: column;
@@ -146,15 +149,17 @@ body {
         border-radius: 8px;
     }
 
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease forwards;
+    }
 
-.nav-links.active {
-    display: flex;
-}
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
 
-.menu-toggle {
-    display: flex;
-}
-}
+
 
 .carousel {
     width: 100vw;
