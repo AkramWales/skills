@@ -60,6 +60,15 @@ body {
     position: relative;
 }
 
+.nav-links a.active {
+    color: var(--accent); 
+    font-weight: 600; 
+}
+
+nav-links a.active::after {
+    width: 100%;
+}
+
 .nav-links a::after {
     content: '';
     position: absolute;
@@ -120,13 +129,15 @@ body {
     }
 
 
-.nav-links.show {
-    display: flex;
-}
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease forwards;
+    }
 
-.menu-toggle {
-    display: flex;
-}
+    .menu-toggle {
+        display: flex;
+        z-index: 1001;
+    }
 }
 /* Akram Section */
 .number {
