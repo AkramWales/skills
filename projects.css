@@ -1,8 +1,8 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: segoe Ui, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
 }
 
 :root {
@@ -27,6 +27,11 @@ body {
     padding-top: 0; 
 }
 
+/* ==================================================
+DESKTOP STYLES (Global)
+==================================================
+*/
+
 /* Navigation */
 .nav-bar {
     position: fixed;
@@ -42,9 +47,10 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-
+/* Logo: Visible on Desktop */
 .logo {
     display: flex; 
+    align-items: center; /* Added for alignment */
     font-size: 1.8rem;
     font-weight: 900;
     color: var(--accent);
@@ -52,8 +58,6 @@ body {
     position: relative;
     padding-left: 2.5rem;
     gap: 10px; 
-    text-decoration: none;
-
 }
 
 .logo-img {
@@ -62,8 +66,9 @@ body {
     background-color: var(--dark-bg);
 }
 
+/* Nav Links: Visible on Desktop */
 .nav-links {
-    display: flex;
+    display: flex; /* Nav links visible on desktop */
     gap: 2rem;
     list-style: none;
     z-index: 999;
@@ -93,16 +98,16 @@ body {
 }
 /*-- HAMBURGER MENU -- */
 
-/* hidden on desktop */
+/* Hamburger Menu: Hidden on Desktop */
 .menu-toggle {
-    display: none;
+    display: none; /* Hides the hamburger menu on desktop */
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
     height: 22px;
     cursor: pointer;
 }
-
+/* ... (Hamburger menu styles remain the same) ... */
 .menu-toggle span {
     display: block;
     height: 3px;
@@ -122,53 +127,15 @@ body {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* Mobile View */
-.nav-bar {
-        padding: 10px 15px;
-    }
-
-    .logo-img {
-        height: 35px; 
-    }
-
-    .logo {
-        font-size: 1.5rem; 
-        gap: 8px; 
-       
-    }
-
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        right: 5%;
-        background: rgba(10, 10, 10, 0.95);
-        padding: 1rem 2rem;
-        border-radius: 8px;
-    }
-
-    .nav-links.active {
-        display: flex;
-        animation: fadeIn 0.3s ease forwards;
-    }
-
-    .menu-toggle {
-        display: flex;
-        z-index: 1001;
-    }
-
-
-
+/* Carousel Section */
 .carousel {
     width: 100vw;
     height: 95vh; 
-    margin-top: calc(60px + 3rem); 
+    margin-top: calc(80px + 3rem); /* Adjusted margin-top for fixed nav bar */
     overflow: hidden;
     position: relative;
 }
-
+/* ... (Rest of carousel styles remain the same) ... */
 .carousel .list .item {
     position: absolute;
     width: 200px; 
@@ -192,7 +159,7 @@ body {
     z-index: 10;
 }
     
-   
+    
 .carousel .list .item:nth-child(1) {
     top: 0;
     left: 0;
@@ -280,6 +247,7 @@ body {
     align-items: center;
     z-index: 600;
 }
+/* ... (Rest of arrow styles remain the same) ... */
 .arrows button {
     width: 50px;
     height: 50px;
@@ -288,8 +256,8 @@ body {
     color: #fff;
     border: none;
     outline: none;
-   font-size: 16px;
-   font-family: monospace;
+    font-size: 16px;
+    font-family: monospace;
     font-weight: bold;
     transition: .5s;
     cursor: pointer;
@@ -300,7 +268,114 @@ body {
     color: var(--darker-bg);
 }
 
+/* time running */
+.carousel .timeRunning {
+    position: absolute;
+    z-index: 1000;
+    width: 0%;
+    height: 4px;
+    background-color: var(--accent);
+    left: 0;
+    top: 0;
+    animation: runningTime 7s linear 1 forwards;
+}
+
+@keyframes runningTime {
+    from{width: 0%;}
+    to{width: 100%;}
+}
+
+/* footer */
+footer {
+    background: var(--darker-bg);
+    padding: 3rem 5%;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+/* ... (Rest of social links styles remain the same) ... */
+.social-links a {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* ==================================================
+MOBILE STYLES (Max-Width 768px)
+==================================================
+*/
+@media (max-width: 768px) {
+    /* Nav Bar and Logo Adjustments for Mobile */
+    .nav-bar {
+        padding: 10px 15px;
+    }
+
+    .logo-img {
+        height: 35px; /* Smaller image */
+    }
+
+    .logo {
+        display: flex; /* Logo is visible on mobile */
+        font-size: 1.5rem; /* Smaller text */
+        gap: 8px; 
+        padding-left: 0; /* Remove padding */
+    }
+
+    /* Nav Links: Hidden by default on Mobile, visible when toggled */
+    .nav-links {
+        display: none; /* Hides full links on mobile by default */
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 5%;
+        background: rgba(10, 10, 10, 0.95);
+        padding: 1rem 2rem;
+        border-radius: 8px;
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: fadeIn 0.3s ease forwards;
+    }
+
+    /* Hamburger Menu: Visible on Mobile */
+    .menu-toggle {
+        display: flex; /* Shows hamburger menu on mobile */
+        z-index: 1001;
+    }
+    
+    /* Extra mobile media queries */
+    .slider{
+        height: 400px;
+    }
+
+    .number {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 8rem;
+    }
+
+    .number-content {
+        padding-right: 0;
+        margin-bottom: 3rem;
+    }
+}
+
+
+/* Mobile Styles (Max-Width 600px) */
 @media screen and (max-width: 600px) {
+    /* Carousel Adjustments */
     .carousel {
         height: 70vh; 
         margin-top: 5rem;
@@ -312,14 +387,14 @@ body {
         height: 180px; 
     }
 
-   
+    
     .carousel .list .item:nth-child(2) {
         top: 60%; 
         left: 55%; 
         transform: translateY(-50%) scale(1);
     }
     
-   
+    
     .carousel .list .item:nth-child(3) {
         top: calc(60% + 5px); 
         left: calc(55% + 60px); 
@@ -327,7 +402,7 @@ body {
         opacity: 0.7;
     }
 
-   
+    
     .carousel .list .item:nth-child(n+4) {
         top: 60%;
         left: 100%; 
@@ -348,71 +423,4 @@ body {
         width: 40px; 
         height: 40px;
     }
-}
-
-/* time running */
-.carousel .timeRunning {
-    position: absolute;
-    z-index: 1000;
-    width: 0%;
-    height: 4px;
-    background-color: var(--accent);
-    left: 0;
-    top: 0;
-    animation: runningTime 7s linear 1 forwards;
-}
-
-@keyframes runningTime {
-    from{width: 0%;}
-    to{width: 100%;}
-}
-
-@media screen and (max-width: 768px) {
-    .slider{
-        height: 400px;
-    }
-}
-
-/* footer */
-footer {
-    background: var(--darker-bg);
-    padding: 3rem 5%;
-    text-align: center;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-links {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-}
-
-.social-links a {
-    color: var(--text);
-    font-size: 1.5rem;
-    transition: all 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--accent);
-    transform: translateY(-3px);
-}
-
-@media (max-width: 768px) {
-    .number {
-    flex-direction: column;
-    text-align: center;
-    padding-top: 8rem;
-    }
-
-.number-content {
-    padding-right: 0;
-    margin-bottom: 3rem;
-}
-
-.logo {
-    font-size: 1.5rem;
-    padding-left: 2rem;
-}
 }
